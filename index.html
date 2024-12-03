@@ -85,11 +85,27 @@
             <!-- Formatted text will appear here -->
         </div>
 
-        <h3>CSS Code</h3>
-        <button class="btn btn-secondary btn-copy" onclick="copyCSS()">Copy CSS</button>
-        <div id="css-code" contenteditable="true">
-            <pre>
-.awsm-job-container .entry-title {
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function generateText() {
+            const heading = document.getElementById('heading').value;
+            const description = document.getElementById('description').value;
+            const responsibilities = document.getElementById('responsibilities').value.split(',').map(item => `<li>${item.trim()}</li>`).join('');
+            const skills = document.getElementById('skills').value.split(',').map(item => `<li>${item.trim()}</li>`).join('');
+            const qualifications = document.getElementById('qualifications').value;
+            const additionalSkills = document.getElementById('additional-skills').value.split(',').map(item => `<li>${item.trim()}</li>`).join('');
+            const roleDetails = document.getElementById('role-details').value;
+
+            const formattedText = `
+                <div class="wp-block-group">
+                    <style>
+                        .awsm-job-container .entry-title {
     display: none;
 }
 
@@ -220,26 +236,7 @@
         padding-left: 15px;
     }
 }
-            </pre>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS and Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        function generateText() {
-            const heading = document.getElementById('heading').value;
-            const description = document.getElementById('description').value;
-            const responsibilities = document.getElementById('responsibilities').value.split(',').map(item => `<li>${item.trim()}</li>`).join('');
-            const skills = document.getElementById('skills').value.split(',').map(item => `<li>${item.trim()}</li>`).join('');
-            const qualifications = document.getElementById('qualifications').value;
-            const additionalSkills = document.getElementById('additional-skills').value.split(',').map(item => `<li>${item.trim()}</li>`).join('');
-            const roleDetails = document.getElementById('role-details').value;
-
-            const formattedText = `
-                <div class="wp-block-group">
+                    </style>
                     <h1 class="wp-block-heading">${heading}</h1>
 
                     <h5>Job Description:</h5>
